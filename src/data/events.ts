@@ -18,7 +18,7 @@ export const EVENTS_DATA: EventItem[] = [
     registrationFee: 499,
     originalPrice: 4999,
     currency: '₹',
-    bannerImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
+    bannerImage: 'https://res.cloudinary.com/qfg97bge/image/upload/v1785347553/file_00000000f1308208ab6d947d80489e06_q7eumj.png',
     galleryImages: [
       'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=800&q=80'

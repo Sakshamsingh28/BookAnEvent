@@ -118,16 +118,24 @@ export const EventDetailsView: React.FC = () => {
               </div>
 
               {/* Styled Location Preview Map Box */}
-              <div className="relative h-32 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden flex flex-col items-center justify-center p-3 text-center">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${event.venue}, ${event.address}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative h-32 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden flex flex-col items-center justify-center p-3 text-center group cursor-pointer hover:border-blue-500 transition-all block"
+              >
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:12px_12px]" />
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center mb-1 shadow-md animate-bounce">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center mb-1 shadow-md group-hover:scale-110 transition-transform">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <p className="font-heading font-extrabold text-xs text-[#1D1D1F]">{event.venue}</p>
                   <p className="font-body text-[10px] text-[#6E6E73] truncate max-w-xs">{event.address}</p>
+                  <span className="mt-1 text-[9px] text-blue-600 font-semibold underline flex items-center gap-0.5">
+                    Open Directions <ExternalLink className="w-2.5 h-2.5" />
+                  </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -224,16 +232,21 @@ export const EventDetailsView: React.FC = () => {
           <h3 className="font-heading font-bold text-base text-[#1D1D1F]">Venue Location</h3>
           <p className="font-body text-xs text-[#6E6E73]">{event.venue} — {event.address}</p>
 
-          <div className="relative h-40 rounded-2xl bg-gray-100 border border-[#EAEAEA] overflow-hidden flex flex-col items-center justify-center p-4 text-center">
-            <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mb-2 shadow-xs">
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${event.venue}, ${event.address}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative h-40 rounded-2xl bg-gray-100 border border-[#EAEAEA] overflow-hidden flex flex-col items-center justify-center p-4 text-center block group hover:border-blue-500 transition-all"
+          >
+            <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mb-2 shadow-xs group-hover:scale-110 transition-transform">
               <MapPin className="w-6 h-6" />
             </div>
             <p className="font-heading font-semibold text-xs text-[#1D1D1F]">Hotel Aurtus, Rajapeth Square</p>
-            <p className="font-body text-[10px] text-[#6E6E73] mt-0.5">Amravati, Maharashtra 444601</p>
+            <p className="font-body text-[10px] text-[#6E6E73] mt-0.5">Amravati, Maharashtra 444605</p>
             <span className="mt-2 text-[10px] text-blue-600 font-semibold underline flex items-center gap-1">
-              Open in Apple Maps / Google Maps <ExternalLink className="w-3 h-3" />
+              Open in Google Maps <ExternalLink className="w-3 h-3" />
             </span>
-          </div>
+          </a>
         </div>
       </section>
 

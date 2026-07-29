@@ -26,16 +26,30 @@ export const TicketPreviewView: React.FC = () => {
     qrCodeValue: 'BOOKANEVENT-DSG-KBS-8942'
   };
 
-  const handleShare = () => {
+  const [shared, setShared] = useState(false);
+
+  const handleShare = async () => {
+    const textToShare = `🎟️ Event Pass: ${ticket.eventTitle}\nID: ${ticket.ticketId}\nAttendee: ${ticket.attendeeName}\nDate: ${ticket.eventDate}\nVenue: ${ticket.venue}`;
+    
     if (navigator.share) {
-      navigator.share({
-        title: `Event Pass: ${ticket.eventTitle}`,
-        text: `Ticket ID: ${ticket.ticketId} for ${ticket.attendeeName}`,
-        url: window.location.href,
-      }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(`Ticket ID: ${ticket.ticketId} - ${ticket.eventTitle}`);
-      alert('Ticket info copied!');
+      try {
+        await navigator.share({
+          title: `Event Pass: ${ticket.eventTitle}`,
+          text: textToShare,
+          url: window.location.href,
+        });
+        return;
+      } catch (err) {
+        // Fallback to clipboard
+      }
+    }
+    
+    try {
+      await navigator.clipboard.writeText(textToShare);
+      setShared(true);
+      setTimeout(() => setShared(false), 2500);
+    } catch (e) {
+      alert(`Ticket Details:\n${textToShare}`);
     }
   };
 
@@ -144,13 +158,20 @@ export const TicketPreviewView: React.FC = () => {
             Verified Event Entry
           </p>
         </div>
-        <button
-          onClick={handleShare}
-          aria-label="Share ticket"
-          className="p-2 rounded-full bg-white border border-[#EAEAEA] text-[#1D1D1F] active:scale-90 transition-transform"
-        >
-          <Share2 className="w-4 h-4" />
-        </button>
+        <div className="relative">
+          <button
+            onClick={handleShare}
+            aria-label="Share ticket"
+            className="p-2 rounded-full bg-white border border-[#EAEAEA] text-[#1D1D1F] active:scale-90 transition-transform flex items-center justify-center"
+          >
+            {shared ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
+          </button>
+          {shared && (
+            <span className="absolute top-10 right-0 bg-[#1D1D1F] text-white text-[10px] px-2 py-1 rounded shadow-md whitespace-nowrap z-30">
+              Copied!
+            </span>
+          )}
+        </div>
       </div>
 
       {/* DIGITAL WALLET PASS CARD */}
