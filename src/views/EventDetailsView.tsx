@@ -45,34 +45,6 @@ export const EventDetailsView: React.FC = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30" />
-
-          {/* Top Glassmorphic Navigation Buttons */}
-          <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
-            <button
-              onClick={handleBackClick}
-              aria-label="Go Back"
-              className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white active:scale-90 transition-all shadow-lg hover:bg-white/30"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleShare}
-                aria-label="Share Event"
-                className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white active:scale-90 transition-all shadow-lg hover:bg-white/30"
-              >
-                <Share2 className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => toggleBookmark(event.id)}
-                aria-label="Bookmark Event"
-                className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white active:scale-90 transition-all shadow-lg hover:bg-white/30"
-              >
-                <Bookmark className={`w-5 h-5 ${isBookmarked ? 'fill-blue-500 text-blue-500' : ''}`} />
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Overlapping Main Header Card with Rounded Top Corners */}
