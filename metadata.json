@@ -1,0 +1,6 @@
+{
+  "name": "BookAnEvent",
+  "description": "A premium native iOS-style event discovery and instant booking platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
