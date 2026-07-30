@@ -169,6 +169,37 @@ export const EventDetailsView: React.FC = () => {
         </section>
       )}
 
+      {/* Organiser Section */}
+      {event.organizers && event.organizers.length > 0 && (
+        <section className="px-4">
+          <div className="ios-card p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-heading font-bold text-base text-[#1D1D1F]">Event Organiser</h3>
+              <Award className="w-4 h-4 text-[#6E6E73]" />
+            </div>
+
+            <div className="space-y-3">
+              {event.organizers.map((organizer) => (
+                <div key={organizer.id} className="p-3 rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] flex items-center gap-3">
+                  <img
+                    src={organizer.avatar}
+                    alt={organizer.name}
+                    className="w-12 h-12 rounded-full object-cover border border-white shadow-xs shrink-0"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-heading font-semibold text-xs text-[#1D1D1F]">{organizer.name}</h5>
+                    <p className="font-body text-[11px] text-blue-600 font-medium truncate">{organizer.designation}</p>
+                    {organizer.organization && (
+                      <p className="font-body text-[10px] text-[#6E6E73] truncate">{organizer.organization}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Speakers Section */}
       {event.speakers && event.speakers.length > 0 && (
         <section className="px-4">

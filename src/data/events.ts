@@ -54,6 +54,14 @@ export const EVENTS_DATA: EventItem[] = [
         avatar: 'https://res.cloudinary.com/qfg97bge/image/upload/v1785346367/Screenshot_2026-07-29_230224_oeqoo9.png'
       }
     ],
+    organizers: [
+      {
+        id: 'org-1',
+        name: 'Shyamal Pathak',
+        designation: 'MTech (cosmetics)',
+        avatar: 'https://res.cloudinary.com/qfg97bge/image/upload/v1785430193/WhatsApp_Image_2026-07-30_at_9.59.43_PM_dgt9db.jpg'
+      }
+    ],
     faqs: [
       {
         question: 'Who should attend this seminar?',

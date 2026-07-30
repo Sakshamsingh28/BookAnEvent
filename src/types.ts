@@ -19,6 +19,14 @@ export interface Speaker {
   bio?: string;
 }
 
+export interface Organizer {
+  id: string;
+  name: string;
+  designation: string;
+  avatar: string;
+  organization?: string;
+}
+
 export interface ScheduleItem {
   time: string;
   title: string;
@@ -61,6 +69,7 @@ export interface EventItem {
   highlights: string[];
   schedule: ScheduleItem[];
   speakers: Speaker[];
+  organizers?: Organizer[];
   faqs: FAQItem[];
   reviews: ReviewItem[];
   rating: number;
