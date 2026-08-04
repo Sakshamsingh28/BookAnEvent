@@ -65,19 +65,9 @@ export const PaymentView: React.FC = () => {
         </div>
       </div>
 
-      {/* Large QR Code Container */}
-      <div className="ios-card p-5 text-center space-y-3">
-        <div className="flex items-center justify-center gap-2 text-xs font-semibold text-[#1D1D1F]">
-          <QrCode className="w-4 h-4 text-blue-600" />
-          <span>Scan QR Code with any UPI App</span>
-        </div>
-
-        <div className="py-2 flex justify-center">
-          <QRCodePlaceholder value={upiDeepLink} size={190} showScannerOverlay={true} />
-        </div>
-
-        {/* UPI ID Copy Box */}
-        <div className="p-3 rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] flex items-center justify-between gap-2">
+      {/* Official Merchant UPI ID Card */}
+      <div className="ios-card p-4 space-y-3">
+        <div className="p-3.5 rounded-2xl bg-[#FAFAFA] border border-[#EAEAEA] flex items-center justify-between gap-2">
           <div className="text-left min-w-0">
             <span className="text-[10px] text-[#6E6E73] font-num block uppercase">Official Merchant UPI ID</span>
             <p className="font-num font-bold text-xs text-[#1D1D1F] truncate">{upiId}</p>

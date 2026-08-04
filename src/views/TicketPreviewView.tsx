@@ -55,15 +55,15 @@ export const TicketPreviewView: React.FC = () => {
 
   const handleDownloadImage = () => {
     // Generate an image representation via SVG canvas / Data URL download
-    const canvas = document.createElement('canvas');
-    canvas.width = 600;
-    canvas.height = 800;
-    const ctx = canvas.getContext('2d');
-    
-    if (ctx) {
-      // Draw background
-      ctx.fillStyle = '#1D1D1F';
-      ctx.fillRect(0, 0, 600, 800);
+      const canvas = document.createElement('canvas');
+      canvas.width = 600;
+      canvas.height = 540;
+      const ctx = canvas.getContext('2d');
+      
+      if (ctx) {
+        // Draw background
+        ctx.fillStyle = '#1D1D1F';
+        ctx.fillRect(0, 0, 600, 540);
       
       // Header banner
       ctx.fillStyle = '#1E293B';
@@ -115,15 +115,7 @@ export const TicketPreviewView: React.FC = () => {
       ctx.font = 'bold 18px sans-serif';
       ctx.fillText(ticket.venue, 40, 460);
 
-      // QR box
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fillRect(180, 520, 240, 220);
-      ctx.fillStyle = '#1D1D1F';
-      ctx.font = '14px monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText('SCAN AT ENTRANCE', 300, 560);
-      ctx.font = 'bold 16px monospace';
-      ctx.fillText(ticket.ticketId, 300, 700);
+
 
       const dataUrl = canvas.toDataURL('image/png');
       const link = document.createElement('a');
@@ -242,13 +234,7 @@ export const TicketPreviewView: React.FC = () => {
             </div>
           </div>
 
-          {/* QR Code Placeholder */}
-          <div className="bg-white p-4 rounded-2xl text-center space-y-2 text-[#1D1D1F]">
-            <QRCodePlaceholder value={ticket.qrCodeValue} size={150} />
-            <p className="font-num text-[10px] text-[#6E6E73] font-mono">
-              {ticket.qrCodeValue}
-            </p>
-          </div>
+
         </div>
       </div>
 
